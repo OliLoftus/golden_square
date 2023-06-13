@@ -1,12 +1,10 @@
 # {{PROBLEM}} Function Design Recipe
 
-Copy this into a `recipe.md` in your project and fill it out.
-
 ## 1. Describe the Problem
 
 As a user
-So that I can manage my time
-I want to see an estimate of reading time for a text, assuming that I can read 200 words a minute.
+So that I can improve my grammar
+I want to verify that a text starts with a capital letter and ends with a suitable sentence-ending punctuation mark
 
 ## 2. Design the Function Signature
 
@@ -15,17 +13,17 @@ _Include the name of the function, its parameters, return value, and side effect
 ```python
 # EXAMPLE
 
-def estimated_reading_time(text):
-    """Gives an estimated reading time of a text based on 200 words per minute
+def verify_text(text):
+    """Check that a text starts with a capitalised letter and ends with a sentence ending punctuation mark
 
     Parameters: 
         text: a string containing words (e.g. "hello WORLD")
 
     Returns: (state the return value and its type)
-        a string containing words and the minutes as a flot to 2 decimal places it will take
+        a string containing words verifying the conditions
 
     Side effects: (state any side effects)
-        This function doesn't print anything or have any other side-effects
+        printing out the correct string
     """
     pass # Test-driving means _not_ writing any code here yet.
 ```
@@ -38,25 +36,23 @@ _Make a list of examples of what the function will take and return._
 # EXAMPLE
 
 """
-Given a text of 200 words
+Given a text with no capitalised first letter
 """
-estimated_reading_time("text of 200 words.....") => "This wil take you 1.00 minutes to read"
+verify_text("text.") => "No capitalised first letter"
 
 """
-Given a text of 100 words
+Given a text with no suitable ending punctuation marks
 """
-estimated_reading_time("text of 100 words") => "This wil take you 0.50 minutes to read"
+verify_text("Text") => "No suitable ending punctuation mark"
 
 """
 Given an empty text
 """
-estimated_reading_time("") => "Pick up a book!"
+verify_text("") => throw an error
 
 """
-Given a None value
-It throws an error
+Given a text with a capitalised first letter and suitable ending punctuation mark
 """
-estimated_reading_time(None) throws an error
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
@@ -70,7 +66,7 @@ Here's an example for you to start with:
 ```python
 # EXAMPLE
 
-from lib.estimated_reading_time import *
+from lib.verify_text import *
 
 """
 Given a lower and an uppercase word
