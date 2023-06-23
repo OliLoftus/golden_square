@@ -45,3 +45,6 @@ def test_creates_mock_for_specific_case():
     fake_diary.add(Mock())
     fake_diary.add(Mock())
     assert fake_diary.count_entries() == 2
+
+
+
